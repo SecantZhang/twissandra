@@ -8,7 +8,7 @@ class Command(NoArgsCommand):
         session = cluster.connect()
 
         rows = session.execute(
-            "SELECT * FROM system.schema_keyspaces WHERE keyspace_name='twissandra'")
+            "SELECT * FROM system_schema.keyspaces WHERE keyspace_name='twissandra'")
 
         if rows:
             msg = ' It looks like you already have a twissandra keyspace.\nDo you '
