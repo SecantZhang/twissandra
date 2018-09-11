@@ -16,7 +16,7 @@ source file | changed line | original code | changed code
 ------------|--------------|---------------|-------------
 sync_cassandra.py | 11 | SELECT * FROM system.schema_keyspaces WHERE keyspace_name='twissandra' | SELECT * FROM system_schema.keyspaces WHERE keyspace_name='twissandra'
 
-### All changes has been tested with no errors under the cassandra version 3.11.3 and python 2.7
+### All changes have been tested with no errors under the cassandra version 3.11.3 and python 2.7
 
 ### Below is the original instruction. 
 ---------------------------
