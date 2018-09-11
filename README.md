@@ -1,3 +1,24 @@
+# Fork and Change Purpose: 
+This is the project I forked from [twissandra](https://github.com/twissandra/twissandra).
+While I was running the sync_cassandra.py from terminal, I got an error message says that 
+
+> InvalidRequest: Error from server: code=2200 [Invalid query] message="unconfigured table schema_keyspaces"
+
+So I search the internet and fixed the issue with the help of [stackExchange Post](https://dba.stackexchange.com/questions/149977/querying-from-system-schema-keyspaces-generates-code-2200-invalid-query)
+
+Now if you encountered the same problem as I have, you can still follow the instruction but clone the git from my repository. 
+```
+git clone git://github.com/SecantZhang/twissandra.git
+```
+
+# Changes I've made: 
+source file | changed line | original code | changed code 
+------------|--------------|---------------|-------------
+sync_cassandra.py | 11 | SELECT * FROM system.schema_keyspaces WHERE keyspace_name='twissandra' | SELECT * FROM system_schema.keyspaces WHERE keyspace_name='twissandra'
+
+### Below is the original instructions. 
+---------------------------
+
 # Twissandra
 
 Twissandra is an example project, created to learn and demonstrate how to use
