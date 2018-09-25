@@ -6,6 +6,7 @@ While I was running the sync_cassandra.py from terminal, I got an error message 
 
 So I search the internet and fixed the issue with the help of [stackExchange Post](https://dba.stackexchange.com/questions/149977/querying-from-system-schema-keyspaces-generates-code-2200-invalid-query)
 
+Also, for the website itself, there is a little issue that sometimes I encounter the issue with "ResultSet" has no len(), I fixed it too. 
 Now if you encountered the same problem as I have, you can still follow the instruction but clone the git from my repository. 
 ```
 git clone git://github.com/SecantZhang/twissandra.git
@@ -15,6 +16,7 @@ git clone git://github.com/SecantZhang/twissandra.git
 source file | changed line | original code | changed code 
 ------------|--------------|---------------|-------------
 sync_cassandra.py | 11 | SELECT * FROM system.schema_keyspaces WHERE keyspace_name='twissandra' | SELECT * FROM system_schema.keyspaces WHERE keyspace_name='twissandra'
+cass.py | 80 | if len(results) == limit: | if results.has_more_pages:
 
 ### All changes have been tested with no errors under the cassandra version 3.11.3 and python 2.7
 
