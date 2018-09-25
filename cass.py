@@ -77,7 +77,7 @@ def _get_line(table, username, start, limit):
         return [], None
 
     # If we didn't get to the end, return a starting point for the next page
-    if len(results) == limit:
+    if results.has_more_pages:
         # Find the oldest ID
         oldest_timeuuid = min(row.time for row in results)
 
